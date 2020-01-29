@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Project {
-    pub info: Info,
+    pub info: Option<Info>,
     pub models: Vec<Model>,
     pub requests: Vec<Request>,
 }
@@ -23,7 +23,7 @@ pub struct Model {
 pub struct Request {
     pub name: String,
     pub path: String,
-    pub vars: Vec<Box<Variable>>,
+    pub params: Vec<Box<Variable>>,
     pub method: Method,
     pub response_type: String,
     pub error_type: String,
@@ -32,21 +32,21 @@ pub struct Request {
 #[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 pub enum Method {
     #[serde(rename = "GET")]
-    Get_,
+    Get,
     #[serde(rename = "POST")]
-    Post_,
+    Post,
     #[serde(rename = "PUT")]
-    Put_,
+    Put,
     #[serde(rename = "DELETE")]
-    Delete_,
+    Delete,
     #[serde(rename = "OPTIONS")]
-    Options_,
+    Options,
     #[serde(rename = "HEAD")]
-    Head_,
+    Head,
     #[serde(rename = "PATCH")]
-    Patch_,
+    Patch,
     #[serde(rename = "TRACE")]
-    Trace_,
+    Trace,
 }
 
 #[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
