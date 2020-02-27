@@ -25,8 +25,8 @@ pub struct Request {
     pub path: String,
     pub params: Vec<Box<Variable>>,
     pub method: Method,
-    pub response_type: String,
-    pub error_type: String,
+    pub response_type: Option<Box<Variable>>,
+    pub error_type: Option<Box<Variable>>,
 }
 
 #[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
